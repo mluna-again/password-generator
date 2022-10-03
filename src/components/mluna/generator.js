@@ -11,10 +11,10 @@ export const randomCharacter = () => {
 }
 
 export const randomPassword = (length) => {
-  const chars = Array(length);
-  for (let i = 0; i < length; i++) {
-    chars[i] = randomCharacter();
-  }
+	const chars = Array(length)
+	for (let i = 0; i < length; i++) {
+		chars[i] = randomCharacter()
+	}
 
-  return chars.join();
+	return chars.join()
 }
