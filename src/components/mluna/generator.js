@@ -9,3 +9,12 @@ export const randomCharacter = () => {
 
 	return String.fromCharCode(randomInRange(start, end))
 }
+
+export const randomPassword = (length) => {
+  const chars = Array(length);
+  for (let i = 0; i < length; i++) {
+    chars[i] = randomCharacter();
+  }
+
+  return chars.join();
+}

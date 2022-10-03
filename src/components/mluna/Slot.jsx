@@ -15,13 +15,15 @@ const Slot = ({ value }) => {
 		intervalId.current = setInterval(() => {
 			setDisplayValue(Generator.randomCharacter())
 		}, 100)
+
+    return () => {
+      if (!intervalId.current) return;
+
+      clearInterval(intervalId.current);
+    }
 	}, [value])
 
-	return (
-		<div className='bg-white w-16 h-24 flex justify-center items-center rounded'>
-			<span className='text-3xl'>{displayValue}</span>
-		</div>
-	)
+	return <span className='text-white text-3xl'>{displayValue}</span>
 }
 
 export default Slot
