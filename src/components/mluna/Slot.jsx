@@ -16,11 +16,11 @@ const Slot = ({ value }) => {
 			setDisplayValue(Generator.randomCharacter())
 		}, 100)
 
-    return () => {
-      if (!intervalId.current) return;
+		return () => {
+			if (!intervalId.current) return
 
-      clearInterval(intervalId.current);
-    }
+			clearInterval(intervalId.current)
+		}
 	}, [value])
 
 	return <span className='text-white text-3xl'>{displayValue}</span>
