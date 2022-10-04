@@ -1,29 +1,30 @@
-import { useEffect, useState, useRef } from 'react'
+import { useEffect, useState } from 'react'
 import * as Generator from './generator'
+import styles from './styles/Slot.module.css'
 
-const Slot = ({ value }) => {
-	const [displayValue, setDisplayValue] = useState(value)
-	const intervalId = useRef()
+const ANIMATION_LENGTH = 1500 // 1500 milisecs
+const Slot = ({ value, index, limit }) => {
+	const [tempCharacter, setTempCharacter] = useState('?')
 
 	useEffect(() => {
-		if (value) {
-			clearInterval(intervalId.current)
-			intervalId.current = null
-			return
-		}
+		if (!value) {
+      setTempCharacter('?')
+      return
+    }
 
-		intervalId.current = setInterval(() => {
-			setDisplayValue(Generator.randomCharacter())
+		const intervalId = setInterval(() => {
+			setTempCharacter(Generator.randomCharacter())
 		}, 100)
 
-		return () => {
-			if (!intervalId.current) return
-
-			clearInterval(intervalId.current)
-		}
+		const offset = Math.round(ANIMATION_LENGTH / limit) * (index + 1)
+		setTimeout(() => {
+			clearInterval(intervalId)
+			setTempCharacter(null)
+		}, offset)
 	}, [value])
 
-	return <span className='text-white text-3xl'>{displayValue}</span>
+  // when tempCharacter is null it means there is a value ***and*** the animation is done
+	return <span className={`text-white text-3xl mx-1 ${tempCharacter || styles.selected}`}>{tempCharacter || value}</span>
 }
 
 export default Slot
