@@ -16,5 +16,5 @@ export const randomPassword = (length) => {
 		chars[i] = randomCharacter()
 	}
 
-	return chars.join("")
+	return chars.join('')
 }
