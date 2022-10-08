@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import Slot from './Slot'
 import Button from './Button'
 import useRange from '../hooks/useRange'
+import useCheckbox from '../hooks/useCheckbox'
 import * as Generator from '../generator'
 import styles from '../styles/PasswordGenerator.module.css'
 
@@ -10,7 +11,12 @@ const MAX_LENGTH = 72
 
 const PasswordGenerator = () => {
 	const [password, setPassword] = useState()
+
+	// config
 	const [passwordLength, setPasswordLength] = useRange(MIN_LENGTH)
+	const [includeSymbols, setIncludeSymbols] = useCheckbox()
+	const [includeNumbers, setIncludeNumbers] = useCheckbox()
+  console.log(includeNumbers)
 
 	const slots = []
 	for (let i = 0; i < passwordLength; i++) {
@@ -18,7 +24,8 @@ const PasswordGenerator = () => {
 	}
 
 	const generatePassword = () => {
-		setPassword(Generator.randomPassword(passwordLength))
+		const password = Generator.randomPassword({ passwordLength, includeNumbers, includeSymbols })
+		setPassword(password)
 	}
 
 	useEffect(() => {
@@ -29,7 +36,7 @@ const PasswordGenerator = () => {
 		<div>
 			<div className='flex justify-center mx-16 w-5/4 py-4'>{slots}</div>
 
-      <p className={styles.passwordLength}>PASSWORD LENGTH</p>
+			<p className={styles.passwordLength}>PASSWORD LENGTH</p>
 			<div className={styles.rangeContainer}>
 				<input
 					min={MIN_LENGTH}
@@ -39,6 +46,27 @@ const PasswordGenerator = () => {
 					onChange={setPasswordLength}
 					className={styles.range}
 				/>
+
+				<div>
+					<div>
+						<label htmlFor='includeSymbols'>Include Symbols</label>
+						<input
+							type='checkbox'
+							id='includeSymbols'
+							onChange={setIncludeSymbols}
+							checked={includeSymbols}
+						/>
+					</div>
+					<div>
+						<label htmlFor='includeNumbers'>Include Numbers</label>
+						<input
+							type='checkbox'
+							id='includeNumbers'
+							onChange={setIncludeNumbers}
+							checked={includeNumbers}
+						/>
+					</div>
+				</div>
 			</div>
 			<div className={styles.buttonContainer}>
 				<Button onClick={generatePassword}>Generate Password</Button>
