@@ -1,8 +1,9 @@
 import PasswordGenerator from './PasswordGenerator'
+import styles from '../styles/Container.module.css';
 
 const Container = () => {
 	return (
-		<main className='w-screen h-screen bg-zinc-800'>
+		<main className={styles.container}>
 			<PasswordGenerator />
 		</main>
 	)
