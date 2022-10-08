@@ -24,7 +24,7 @@ const Slot = ({ value, index, limit }) => {
 	}, [value])
 
   // when tempCharacter is null it means there is a value ***and*** the animation is done
-	return <span className={`text-white text-3xl mx-1 ${tempCharacter || styles.selected}`}>{tempCharacter || value}</span>
+	return <span className={`text-black text-3xl mx-1 ${tempCharacter || styles.selected}`}>{tempCharacter || value}</span>
 }
 
 export default Slot

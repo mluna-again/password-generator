@@ -4,12 +4,12 @@
   width: 380px;
   height: 86px;
   font-size: 36px;
-  background: linear-gradient(45deg, transparent 5%, #fcff36 5%);
+  background: linear-gradient(45deg, transparent 5%, #000000 5%);
   border: 0;
-  color: #000000;
+  color: #fcff36;
   letter-spacing: 3px;
   line-height: 88px;
-  box-shadow: 6px 0 0 #ff5436;
+  box-shadow: 6px 0 0 #000000;
   outline: transparent;
 }
 
@@ -26,8 +26,8 @@
   top: 0;
   left: 0;
   bottom: 0;
-  background: linear-gradient(45deg, transparent 3%, #ff5436 3%, #ff5436 5%, #fcff36 5%);
-  text-shadow: -3px -3px 0 #fcff36, 3px 3px 0 #ff5436;
+  background: linear-gradient(45deg, transparent 3%, #ff5436 3%, #ff5436 5%, #000000 5%);
+  text-shadow: -3px -3px 0 #000000, 3px 3px 0 #ff5436;
   clip-path: var(--slice-0);
 }
 
