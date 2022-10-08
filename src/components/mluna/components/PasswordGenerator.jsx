@@ -16,7 +16,7 @@ const PasswordGenerator = () => {
 	const [passwordLength, setPasswordLength] = useRange(MIN_LENGTH)
 	const [includeSymbols, setIncludeSymbols] = useCheckbox()
 	const [includeNumbers, setIncludeNumbers] = useCheckbox()
-  console.log(includeNumbers)
+	console.log(includeNumbers)
 
 	const slots = []
 	for (let i = 0; i < passwordLength; i++) {
@@ -36,34 +36,40 @@ const PasswordGenerator = () => {
 		<div>
 			<div className='flex justify-center mx-16 w-5/4 py-4'>{slots}</div>
 
-			<p className={styles.passwordLength}>PASSWORD LENGTH</p>
+			<p className={styles.passwordLength}>PASSWORD PARAMETERS</p>
 			<div className={styles.rangeContainer}>
-				<input
-					min={MIN_LENGTH}
-					max={MAX_LENGTH}
-					type='range'
-					value={passwordLength}
-					onChange={setPasswordLength}
-					className={styles.range}
-				/>
+				<div className='flex flex-col'>
+					<label htmlFor='lenght'>PASSWORD LENGTH</label>
+					<input
+						id='lenght'
+						min={MIN_LENGTH}
+						max={MAX_LENGTH}
+						type='range'
+						value={passwordLength}
+						onChange={setPasswordLength}
+						className={styles.range}
+					/>
+				</div>
 
-				<div>
-					<div>
+				<div className='mx-3'>
+					<div className='flex items-center'>
 						<label htmlFor='includeSymbols'>Include Symbols</label>
 						<input
 							type='checkbox'
 							id='includeSymbols'
 							onChange={setIncludeSymbols}
 							checked={includeSymbols}
+							className={styles.checkbox}
 						/>
 					</div>
-					<div>
+					<div className='flex items-center'>
 						<label htmlFor='includeNumbers'>Include Numbers</label>
 						<input
 							type='checkbox'
 							id='includeNumbers'
 							onChange={setIncludeNumbers}
 							checked={includeNumbers}
+							className={styles.checkbox}
 						/>
 					</div>
 				</div>
