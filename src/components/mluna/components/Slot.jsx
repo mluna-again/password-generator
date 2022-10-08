@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
-import * as Generator from './generator'
-import styles from './styles/Slot.module.css'
+import * as Generator from '../generator'
+import styles from '../styles/Slot.module.css'
 
 const ANIMATION_LENGTH = 1500 // 1500 milisecs
 const Slot = ({ value, index, limit }) => {

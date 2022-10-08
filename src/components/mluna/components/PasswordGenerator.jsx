@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import Slot from './Slot'
-import useRange from './hooks/useRange'
-import * as Generator from './generator'
+import useRange from '../hooks/useRange'
+import * as Generator from '../generator'
 
 const MIN_LENGTH = 6
 const MAX_LENGTH = 72
