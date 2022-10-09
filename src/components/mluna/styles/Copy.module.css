@@ -1,0 +1,48 @@
+.container {
+  cursor: pointer;
+  position: relative;
+  padding: 5px 10px;
+  margin: 10px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #000000;
+  color: #fcff36;
+  transition: all 0.4s ease;
+}
+
+.container:hover {
+  background-color: #fcff36;
+  color: #000000;
+}
+
+.container svg {
+  height: 25px;
+  fill: #fcff36;
+  transition: all 0.4s ease;
+}
+
+.container svg:first-of-type {
+  position: absolute;
+  top: 1px;
+  left: 1px;
+  z-index: 2;
+}
+
+.container:hover svg:first-of-type {
+  transform: translate(-5px, -5px);
+  fill: #000000;
+}
+
+.container svg:last-of-type {
+  position: absolute;
+  bottom: 1px;
+  right: 1px;
+  z-index: 2;
+}
+
+.container:hover svg:last-of-type {
+  transform: translate(5px, 5px);
+  fill: #000000;
+}
+

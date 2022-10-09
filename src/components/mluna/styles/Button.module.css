@@ -9,8 +9,9 @@
   color: #fcff36;
   letter-spacing: 3px;
   line-height: 88px;
-  box-shadow: 6px 0 0 #000000;
+  /* box-shadow: 6px 0 0 #000000; */
   outline: transparent;
+  transition: background-color 0.4s ease;
 }
 
 .button::after {

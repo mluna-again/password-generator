@@ -1,13 +1,14 @@
 import { useState, useEffect } from 'react'
 import Slot from './Slot'
 import Button from './Button'
+import Copy from './Copy'
 import useRange from '../hooks/useRange'
 import useCheckbox from '../hooks/useCheckbox'
 import * as Generator from '../generator'
 import styles from '../styles/PasswordGenerator.module.css'
 
 const MIN_LENGTH = 6
-const MAX_LENGTH = 72
+const MAX_LENGTH = 52
 
 const PasswordGenerator = () => {
 	const [password, setPassword] = useState()
@@ -16,7 +17,6 @@ const PasswordGenerator = () => {
 	const [passwordLength, setPasswordLength] = useRange(MIN_LENGTH)
 	const [includeSymbols, setIncludeSymbols] = useCheckbox()
 	const [includeNumbers, setIncludeNumbers] = useCheckbox()
-	console.log(includeNumbers)
 
 	const slots = []
 	for (let i = 0; i < passwordLength; i++) {
@@ -34,7 +34,10 @@ const PasswordGenerator = () => {
 
 	return (
 		<div>
-			<div className='flex justify-center mx-16 w-5/4 py-4'>{slots}</div>
+			<div className='flex justify-center'>
+				<div className='flex justify-center mx-16 w-5/4 py-4'>{slots}</div>
+				<Copy password={password} />
+			</div>
 
 			<p className={styles.passwordLength}>PASSWORD PARAMETERS</p>
 			<div className={styles.rangeContainer}>
