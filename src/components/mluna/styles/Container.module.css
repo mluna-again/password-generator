@@ -5,4 +5,7 @@
   background-color: #fcff36;
   height: 100vh;
   width: 100%;
+  display: flex;
+  justify-content: center;
+  padding-top: 9rem;
 }

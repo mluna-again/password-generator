@@ -28,7 +28,7 @@ const Copy = ({ password }) => {
 					/>
 				</svg>
 			</button>
-			<Overlay text='PASSPORT COPIED' visible={showOverlay} onClose={closeOverlay} />
+			<Overlay text='PASSWORD COPIED' visible={showOverlay} onClose={closeOverlay} />
 		</>
 	)
 }
